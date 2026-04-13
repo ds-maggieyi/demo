@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Menu, Bell, HelpCircle, Mic, Upload, History, ChevronDown, FileText, Download, Send, Plus, Sparkles, Square, Image as ImageIcon, MoreVertical, FileDown, Copy, Check, X, Paperclip } from 'lucide-react'
 import { basePath } from '../config'
@@ -11,7 +11,7 @@ import { generateSOAPNote, generateReferralLetter, generateInsuranceClaim } from
 type TabType = 'transcript' | 'summary'
 type ReportType = 'soap' | 'referral' | 'insurance'
 
-export default function AINotePage() {
+function AINote() {
   const searchParams = useSearchParams()
   const [activeTab, setActiveTab] = useState<TabType>('transcript')
   const [transcript, setTranscript] = useState('')
@@ -1203,5 +1203,13 @@ Provider: ${practitioner}                          Date: ${dateCreated}`
         </main>
       </div>
     </div>
+  )
+}
+
+export default function AINotePage() {
+  return (
+    <Suspense fallback={<div className="h-screen bg-[#F5F5F5] flex items-center justify-center">Loading...</div>}>
+      <AINote />
+    </Suspense>
   )
 }
