@@ -1,1 +1,1 @@
-export const basePath = '';
+export const basePath = '/ai-dental-note';
