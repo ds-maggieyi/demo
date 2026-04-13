@@ -1,0 +1,2 @@
+This is a placeholder. Please replace with the actual dental-scan.png image.
+The image should be a dental scan thumbnail (approximately 96x96 pixels recommended).
