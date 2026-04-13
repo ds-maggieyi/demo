@@ -789,33 +789,33 @@ Provider: ${practitioner}                          Date: ${dateCreated}`
             </div>
 
             {/* Treatments and Media Section */}
-            <div className="mb-6 bg-white rounded-lg border border-gray-200 p-4">
-              {/* Linked Treatments */}
-              <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Linked Treatments</label>
-                <div className="flex flex-wrap gap-2 items-center">
+            <div className="mb-4 bg-white rounded-lg border border-gray-200 p-3">
+              <div className="flex flex-wrap gap-x-4 gap-y-2 items-center text-xs">
+                {/* Linked Treatments */}
+                <div className="flex flex-wrap gap-1.5 items-center">
+                  <span className="text-gray-600 font-medium whitespace-nowrap">Treatments:</span>
                   {linkedTreatments.map((treatment) => (
                     <span
                       key={treatment}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 text-sm rounded-full border border-blue-200"
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200"
                     >
-                      <Paperclip className="w-3.5 h-3.5" />
-                      {treatment}
+                      <Paperclip className="w-3 h-3" />
+                      <span className="text-xs">{treatment}</span>
                       <button
                         onClick={() => handleRemoveTreatment(treatment)}
-                        className="ml-1 hover:bg-blue-100 rounded-full p-0.5"
+                        className="hover:bg-blue-100 rounded-full p-0.5"
                       >
-                        <X className="w-3.5 h-3.5" />
+                        <X className="w-3 h-3" />
                       </button>
                     </span>
                   ))}
                   <div className="relative">
                     <button
                       onClick={() => setShowTreatmentSelector(!showTreatmentSelector)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full border border-gray-300 transition-colors"
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full border border-gray-300 transition-colors"
                     >
-                      <Plus className="w-3.5 h-3.5" />
-                      Add Treatment
+                      <Plus className="w-3 h-3" />
+                      <span className="text-xs">Add</span>
                     </button>
                     {showTreatmentSelector && (
                       <>
@@ -844,30 +844,31 @@ Provider: ${practitioner}                          Date: ${dateCreated}`
                     )}
                   </div>
                 </div>
-              </div>
 
-              {/* Media Files */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Media Files</label>
-                <div className="flex flex-wrap gap-2 items-center">
+                {/* Separator */}
+                <div className="h-4 w-px bg-gray-300"></div>
+
+                {/* Media Files */}
+                <div className="flex flex-wrap gap-1.5 items-center">
+                  <span className="text-gray-600 font-medium whitespace-nowrap">Media:</span>
                   {mediaFiles.map((file) => (
                     <span
                       key={file.id}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full border border-purple-200"
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-purple-50 text-purple-700 rounded-full border border-purple-200"
                     >
-                      <ImageIcon className="w-3.5 h-3.5" />
-                      {file.name}
+                      <ImageIcon className="w-3 h-3" />
+                      <span className="text-xs">{file.name}</span>
                       <button
                         onClick={() => handleRemoveMedia(file.id)}
-                        className="ml-1 hover:bg-purple-100 rounded-full p-0.5"
+                        className="hover:bg-purple-100 rounded-full p-0.5"
                       >
-                        <X className="w-3.5 h-3.5" />
+                        <X className="w-3 h-3" />
                       </button>
                     </span>
                   ))}
-                  <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full border border-gray-300 transition-colors cursor-pointer">
-                    <Upload className="w-3.5 h-3.5" />
-                    Upload
+                  <label className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full border border-gray-300 transition-colors cursor-pointer">
+                    <Upload className="w-3 h-3" />
+                    <span className="text-xs">Upload</span>
                     <input
                       type="file"
                       multiple
