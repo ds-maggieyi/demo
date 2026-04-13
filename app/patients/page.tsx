@@ -1,12 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { Menu, Bell, HelpCircle, Search, Plus, Sparkles } from 'lucide-react'
 import { basePath } from '../config'
 
 export default function PatientsPage() {
-  const router = useRouter()
   const [searchQuery, setSearchQuery] = useState('')
 
   const patients = [
@@ -159,28 +158,23 @@ export default function PatientsPage() {
                   {filteredPatients.map((patient) => (
                     <tr
                       key={patient.id}
-                      className="hover:bg-gray-50 cursor-pointer"
-                      onClick={() => router.push(`${basePath}/patients/${patient.id}`)}
+                      className="hover:bg-gray-50"
                     >
                       <td className="px-4 py-4">
                         <input
                           type="checkbox"
                           className="rounded border-gray-300"
-                          onClick={(e) => e.stopPropagation()}
                         />
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-sm font-medium text-blue-600 hover:underline">
+                        <Link href={`${basePath}/patients/${patient.id}`} className="text-sm font-medium text-blue-600 hover:underline">
                           {patient.name}
-                        </span>
+                        </Link>
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-700">{patient.cardId}</td>
                       <td className="px-6 py-4 text-sm text-gray-700">{patient.birthdate}</td>
                       <td className="px-4 py-4">
-                        <button
-                          className="p-1 hover:bg-gray-100 rounded"
-                          onClick={(e) => e.stopPropagation()}
-                        >
+                        <button className="p-1 hover:bg-gray-100 rounded">
                           <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                           </svg>
