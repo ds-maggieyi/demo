@@ -48,7 +48,7 @@ export default function FloatingVoiceWidget({ patientName, patientDOB }: Floatin
       }
     }
 
-    router.push(`${basePath}/ai-note?${params.toString()}`)
+    router.push(`/ai-note?${params.toString()}`)
   }
 
   const handleCancel = () => {
