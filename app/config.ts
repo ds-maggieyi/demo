@@ -1,1 +1,1 @@
-export const basePath = '/two-side-view-ordering';
+export const basePath = '';
