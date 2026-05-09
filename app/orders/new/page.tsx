@@ -239,7 +239,7 @@ export default function NewOrderPage() {
         const searchNameLower = extracted.patientName.toLowerCase()
         return patientNameLower.includes(searchNameLower) ||
                searchNameLower.split(' ').reverse().join(', ').toLowerCase() === patientNameLower ||
-               searchNameLower.split(' ').every(part => patientNameLower.includes(part))
+               searchNameLower.split(' ').every((part: string) => patientNameLower.includes(part))
       })
       if (foundPatient) {
         setSelectedPatient(foundPatient)
@@ -376,7 +376,7 @@ export default function NewOrderPage() {
         const searchNameLower = extracted.patientName.toLowerCase()
         return patientNameLower.includes(searchNameLower) ||
                searchNameLower.split(' ').reverse().join(', ').toLowerCase() === patientNameLower ||
-               searchNameLower.split(' ').every(part => patientNameLower.includes(part))
+               searchNameLower.split(' ').every((part: string) => patientNameLower.includes(part))
       })
       if (foundPatient) {
         setSelectedPatient(foundPatient)
