@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/two-side-view-ordering',
+  basePath: '/demo',
   images: {
     unoptimized: true,
   },
