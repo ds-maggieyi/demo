@@ -1,1 +1,1 @@
-export const basePath = '/ai-dental-note';
+export const basePath = '/two-side-view-ordering';
